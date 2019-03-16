@@ -17,7 +17,18 @@ Unity provides a basic graphical interface to build the simulation environment, 
 \end{itemize} 
 All the modeling works can be done in the graphical user interface. A general method of modeling are divided into 4 steps. Firstly a new default model needs to be created in Unity or imported from other 3D modeling software. This new model will appear in hierarchy window with other existent objects. Here the hierarchical relations can be adjusted. Secondly the dimensions and positions of new created model can be modified in inspector window, and new components (e.g. C\# scripts, Mesh Renderer, etc.) can be added into the model. Then in scene window a arbitrary perspective could be set, and according to the local coordinate system the position relationship among different objects can be adjusted. Finally when all items are correctly set and all needed components are added on them, the simulation scene can be played and the progress can be monitored in game view window in real time.
 \subsection{Coordinate system in Unity}
-
+The world coordinate system is left handed (as Direct X) where x positive axis is right, y positive is up and z is positive into the screen.\\
+\begin{figure}[h]
+	\centering
+	\captionsetup{justification=centering}
+	\includegraphics{{Figures/Section3_CoordinateSystem.png}}
+	\caption{Coordinate system in Unity}
+	\label{fig: Coordinate unity}
+\end{figure}\\
+Screen coordinate system is bottom-up: (0,0) at bottom-left corner and (pixelWidth-1,pixelHeight-1) at right-top; x axis is positive right and y is positive up. The z position is in world units from the camera.\\
+Viewport coordinate system is normalized and relative to the camera, so the bottom-left point is (0,0), the top-right is (1,1). The z position is in world units from the camera.\\
+Finally UI coordinate system is top-down: the y coordinate varies from zero at the top edge of the window to a maximum at the bottom edge of the window. The upper-left point is (0,0); the bottom-right is (1,1).\\
+There are many functions to convert between all these different coordinate systems
 \subsection{Basic principle in scene}
 \subsection{Basic knowledge of script}
 
