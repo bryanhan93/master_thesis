@@ -29,7 +29,44 @@ Screen coordinate system is bottom-up: (0,0) at bottom-left corner and (pixelWid
 Viewport coordinate system is normalized and relative to the camera, so the bottom-left point is (0,0), the top-right is (1,1). The z position is in world units from the camera.\\
 Finally UI coordinate system is top-down: the y coordinate varies from zero at the top edge of the window to a maximum at the bottom edge of the window. The upper-left point is (0,0); the bottom-right is (1,1).\\
 There are many functions to convert between all these different coordinate systems
-\subsection{Basic principle in scene}
+\subsection{Basic concepts in scene}
+To build a basic scene in Unity 3D, some important core concepts need to be known. which include Game Object, Component, Script and etc. They form the main basic elements of unity and should be added into the scene to realize the needed functions and effects. Normally the Component and Script are sub-element of the Game Object.\\
+\begin{itemize}
+	\item Scenes: Scenes contain the objects of simulation project. They can be used to create a main menu, individual levels, and anything else. Each unique Scene file is a unique level. In each Scene, the environments, obstacles, decorations will be placed, and the project are designed and built in pieces.\\
+	A new Unity project will show a new Scene. The scene will be empty except for default objects- either an orthographic camera, or a  perspective camera and a directional light. 
+	\item GameObjects: The GameObject is the most important concept in the Unity Editor.\\
+	Every object in project is a GameObject. This means that everything which can be thought of to be in the project has to be a GameObject. However, a GameObject can't do anything on its own; The properties need to be given before it can become a character, an environment, or a special effect.\\
+	A GameObject is a container; pieces are added to the GameObject container to make it into a character, a light, or whatever needed in project. Each added piece is called a component.\\
+	Depending on what kind of object need to be created, different combinations of components can be added to a GameObject. A GameObject could be thought of as an empty cooking pot, and components are different ingredients that make up the recipe of project.  
+	\item Component: Components are the nuts \& bolts of objects and behaviors in a game. They are the functional pieces of every GameObject.\\
+	A GameObject is a container for many different Components. By default, all GameObjects automatically have a Transform Component. This is because the Transform dictates where the GameObject is located, and how it is rotated and scaled. Without a Transform Component, the GameObject wouldn't have a location in the word.
+	\item Script: Scripting is an essential ingredient in all projects. They can be used to create graphical effects, control the physical behavior of objects and even implement a custom automatic system in the project. In next subsection, basic knowledge of scripting will be introduced to show how the script runs in unity and which basic functions are included in it. 
+\end{itemize}
 \subsection{Basic knowledge of script}
+Unity supports the C\# programming language, which is an industry-standard language similar to Java or C++.\\
+A script makes its connection with the internal workings of Unity by implementing a class which derives from the built-in class called MonoBehaviour. A class is like a kind of blueprint for creating a new Component type that can be attached to GameObjects. The core elements to realize different effects are the Event Functions. A script in Unity is not like the traditional idea of a program where the code runs continuously in a loop until it completes its task. Instead, Unity passes control to a script intermittently by calling certain functions that are declared within it. Once a function has finished executing, control is passed back to Unity. These functions are known as event functions since they are activated by Unity in response to events that occur during gameplay. Unity uses a naming scheme to identify which function to call for a particular event. There are four basic types of events:
+\begin{itemize}
+	\item Regular Update Events: 
+	\begin{enumerate}
+		\item Update function: The Update function is the main place for making changes to position, state and behavior of objects in the scene just before each frame is rendered. Update is called before the frame is rendered and also before animations are calculated.
+		\item FixedUpdate function: The physics engine also update in discrete time steps in a similar way to the frame rendering. A separate event function called FixedUpdate is called just before each physics update.
+		\item LateUpdate function: It is also useful sometimes to be able to make additional changes at a point after the Update and FixedUpdate functions have been called for all objects in the scene and fter all animations have been calculated.
+	\end{enumerate}
+	\item Initialization Events:
+	\begin{enumerate}
+		\item Start function: It is called before the first frame or physics update on an object.
+		\item Awake function: The Awake function is called for each object in the scene at the time when the scene loads. All the Awakes will have finished before the first Start is called. This means that code in a Start function can make use of other initializations previously carried out in the Awake phase.
+	\end{enumerate}
+	\item GUI event: Unity has a system for rendering GUI controls over the main action in the scene and responding to clicks on these controls. This code is handled somewhat differently from the normal frame update and so it should be placed in the OnGUI function, which will be called periodically.
+	\item Physics events: The physics engine will report collisions against an object by calling event functions on the object's script. 		
+\end{itemize}
+\begin{figure}[h]
+	\centering
+	\captionsetup{justification=centering}
+	\includegraphics[width=\textwidth]{Figures/Section3_Eventfunction.png}
+	\caption{Event function and execution order in Unity}
+	\label{fig: event_function}
+\end{figure}
 
-\dots
+\section{Neural network and Deep Learning}
+\subsection{title}
