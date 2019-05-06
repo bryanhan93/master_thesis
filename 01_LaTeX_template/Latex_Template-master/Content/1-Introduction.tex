@@ -4,8 +4,42 @@
 \chapter{\iflanguage{ngerman}{Einleitung}{Introduction}}
 \label{sec:Introduction}
 %% ==============================
+Robot learning has attracted an increasing amount of attention in recent years.  With the development of technology robots are required to conduct complex tasks and tackle unforeseen circumstances. Giving robots the ability to learn is paramount for ensuring the success of future robotic system. Perceiving and processing information from environment are particularly important for robot learning.
 
-\textbf{See the section \ref{sec:how-to-use}.}
+Pose estimation of an object from pixels is a well-studied problem of perceiving task in robotics. Pose estimation can be achieved by a variety of methods, including the approach based on image. Estimation from camera pixels is attractive due to the low cost of cameras and the rich data they provide, but challenging because it involves processing high-dimensional input data. Recent work has shown that supervised learning with deep neural networks is a powerful tool for learning generalizable representations from high-dimensional inputs \cite{lecun2015yoshua}, and state-of- the-art methods employ complex, hand-engineered image processing pipelines (e.g., \cite{collet2011moped}, \cite{tang2012textured}). This work is a first step toward the goal of using deep learning to improve the accuracy of object detection pipelines. But deep learning relies on a large amount of labeled data. Labeled data is difficult to obtain in the real world for precise robotic manipulation behaviors, but it is easy to generate in a physics simulator. So the concept of transfer learning was proposed. The main idea is to realize the learning process in simulation and then transfer the knowledge to the robot in real world, which is called \textit{sim-to-real}.
 
-\dots
-\Blindtext
+Learning in simulation is especially promising for building on recent results using deep reinforcement learning to achieve human-level performance on tasks like Atari \cite{mnih2015human} and robotic control \cite{levine2016end}. However, discrepancies between physics simulators and the real world make transferring behaviors from simulation challenging. Some recent work has received good results on the overcoming the reality gap. Robustness from sim to real can be improved by injecting noise \cite{su2015render}, using domain randomization \cite{tobin2017domain}, domain adaptation \cite{sun2014virtual}, Although not explicitly using real-world data for training, these methods have been shown effective to increase the success rate of sim-to-real transfer
+
+\section{Aim of the Thesis}
+The final goal of the thesis is combined with the above methods to optimize the pose estimation via transfer learning, for improving the robustness of the detector from sim to real. And further optimization will be performed for higher estimation accuracy. For performing robotic learning in a physics simulator, the simulation scene is built based on Unity3D rendering engine. The deep neural network models were then built and optimized to obtain a accurate object detector. To analyze the effects of different rendering conditions on accuracy and robustness of detector, various simulation scenes were built. Finally, the estimation accuracy is further improved by using a dual-camera system.
+
+In order to achieve the final goal, the following sub-goals are pursued:
+\begin{itemize}
+	\item Set up a simulation environment for the experiment with different function modules, which can achieve various rendering effects.
+	\item Design a deep neural network model for the task and optimize its performance.
+	\item Compare the effects of different rendering conditions on prediction accuracy and robustness.
+	\item Further optimization through dual-camera system. 
+	\item Evaluate the performance of detector by performing robot grasping experiment.
+\end{itemize}
+
+\section{Contributions}
+In this thesis, in order to optimize the pose estimation based on sim-to-real transfer, a complete pipeline has been built, which starts from building a simulation environment to detector optimization and finally to robotic experiments. The main contributions are:
+
+\begin{itemize}
+	\item The pipeline laid the foundation for further research based on transfer learning. The research focusing on multi-objects estimation and robot control can be extended on our pipeline.
+	\item The simulation environment in the experiment can be used for other deep learning learning tasks. The rendering environment consists of different functional modules, which can be used for other projects by modifying the functions.
+	\item Verification of the feasibility of transfer learning for our pose estimation task.
+\end{itemize}
+
+\section{Outline}
+According to the stated main goals, the remainder of this thesis is structured as outlined in the following:
+
+Chapter 2 gives an overview of the state-of-the-art. The related works in object detection and pose estimation in robotics are presented. The it describe the methods for overcoming  the reality gap, e.g. domain adaptation and domain randomization.
+
+Chapter3 introduces the technical background of thesis. Section 3.1 gives the basic knowledge of interaction interface and scene rendering in Unity3D. Section 3.2 describes the principle and structure of the deep neural network. Several well-known convolutional neural network models are introduced in section 3.3.
+
+The pipeline architecture design and functionality explanation of different modules is presented in Chapter 4. Section 4.1 describes the structure of overall pipeline. Section 4.2 describes the different function modules of simulation environment. The structure design and training process are introduces in section 4.3. Finally, the evaluation module and the data collection process in real world are presented.
+
+Chapter5 introduces the experimental process and results analysis. Section 5.1 describes the scene settings in both real world and simulation environment. Model optimization and rendering scene optimization are mentioned in section 5.2 and 5.3. In Section 5.4 the dual-camera system was used to optimize the estimation accuracy. Finally, the robotic experiments are introduced in section 5.5.
+
+In Chapter 6, conclusions are drawn and potential future works are presented.

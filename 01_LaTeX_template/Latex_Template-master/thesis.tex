@@ -33,7 +33,7 @@
 
 \settitle
 \usepackage{graphicx}
-\usepackage{subcaption}
+\usepackage{multirow}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Here, main documents begins %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -76,15 +76,17 @@
 %% |   Main part   |
 %% -----------------
 \setmainpart
-
+\include{Content/0-Declaration} 
+\include{Content/0-Abstract_EN}
+\include{Content/0-Abstract_DE}
+\include{Content/0-Acknowledgments}
 \include{Content/1-Introduction}
 \include{Content/2-State-of-the-art}
-\include{Content/3-Methods}
-\include{Content/4-Concept}
-\include{Content/5-Implementation}
-\include{Content/6-Results}
-\include{Content/7-Discussion}
-\include{Content/8-Conclusion}
+\include{Content/3-Technogical_Foundations}
+\include{Content/4-Pipeline_Design}
+\include{Content/5-Experiments_and_Evaluation}
+\include{Content/6-Conclusion_and_Futurework}
+
 
 %% --------------------
 %% |   Bibliography   |
@@ -115,6 +117,8 @@
 %% --------------------------------
 %% |   How to use this document   |
 %% --------------------------------
-\includehowtouse
+%\includehowtouse
 
-\end{document}
+\end{document}\begin{flushright}
+
+\end{flushright}

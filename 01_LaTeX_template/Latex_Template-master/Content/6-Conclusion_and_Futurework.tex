@@ -1,0 +1,20 @@
+%% ==============================
+\chapter{\iflanguage{ngerman}{Ergebnisse}{Results}}
+\label{sec:results}
+%% ==============================
+In the last chapter, we will present conclusions that we have drawn from the experiment results. Then some limitations in the proposed pipeline will be discussed and potential future works will be introduced.
+
+\section{Conclusion}
+In this thesis, we trained the detector for estimating the object pose in the simulation environment through transfer learning. By optimizing the network model and simulation environment, we achieved the satisfied accuracy and robustness in real world. And through dual-camera system the accuracy of our detector is further improved. Finally we evaluated the performance of our detector by performing robot grasping experiment.
+
+We built a simulation environment with several function modules based on Unity3D for robot training. In each module, we introduced its functionality and explained related algorithms and the frameworks we referred to, followed by some implementation details with the APIs in the module. We studied the performance of different neural network models for our task and optimized the model structure and hyperparameters. Next, we analyzed the effects of different rendering conditions on object estimation accuracy and robustness from sim to real, the optimized the detector from the results. The we further improved the accuracy of the detector by using dual-camera system. Finally, the robot experiment was performed to demonstrate the potential of the detector trained in simulation and transferred to the real world.
+
+The experiment results prove that our detector can identify and estimate the object pose from its shape and size. It is also able to ignore the previous unseen distractors from the real world in highly cluttered scenes, which shows the good robustness.
+
+\section{Future work}
+Future directions mainly contains: 
+\begin{itemize}
+	\item In this thesis, the current work focus on pose estimation for single object, for further research it can be extended to multiple objects via transfer learning.
+	\item The accuracy of object detectors can be improved by other approaches, such as using higher resolution camera frames, or incorporating depth information.
+	\item Robot control and trajectory planning can be integrated in this pipeline. As our key point is mainly focus on the perception problem, the training task on obstacle avoidance and trajectory planning can also be implemented via transfer learning based on the physical engine in Unity3D. And a complete End-to-End pipeline can be established. 
+\end{itemize}
